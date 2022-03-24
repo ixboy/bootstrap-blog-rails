@@ -7,10 +7,21 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class="container">
+    <%= render 'topheader'%>
+    <%= render 'navscroller'%>
+  </div>
+  <main class="container">
     <%= yield %>
+  </main>
+    <%= render "footer" %>
   </body>
 </html>
