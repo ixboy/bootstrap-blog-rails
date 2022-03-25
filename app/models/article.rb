@@ -2,7 +2,8 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }
 
+  paginates_per 6
   # Scopes
   default_scope { order(created_at: :desc) }
-  scope :recent_three, -> { order(created_at: :desc).first(3) }
+  scope :without_featured, ->(ids) { where('id NOT IN(?)', ids) if ids.present? }
 end
