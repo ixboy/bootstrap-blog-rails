@@ -1,7 +1,7 @@
-<%= render 'longer_featured'%>
+<%= render_if(@highlights[0].present?, 'longer_featured', article: @highlights[0])%>
 <div class="row mb-2">
-    <%= render 'medium_featured'%>
-    <%= render 'medium_featured'%>
+    <%= render_if(@highlights[1].present?, 'medium_featured', article: @highlights[1])%>
+    <%= render_if(@highlights[2].present?, 'medium_featured', article: @highlights[2])%>
 </div>
 <div class="row g-5">
     <div class="col-md-8">
