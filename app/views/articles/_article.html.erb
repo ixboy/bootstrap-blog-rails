@@ -2,7 +2,7 @@
     <h2 class="blog-post-title"><%= article.title %></h2>
     <p class="blog-post-meta"><%= date_helper(article.created_at)%> <a href="#">Chris</a></p>
     <p>
-        <%= truncate(article.body, length: 230) %>
+        <%= truncate(article.body, length: 250) %><br/>
         <%= link_to 'Continue reading...', article, class: 'btn btn-link' %>
     </p>
     <%= link_to "Edit", edit_article_path(article), class: 'btn btn-secondary' %>

@@ -1,7 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, except: %i[index new create]
   def index
+    current_page = (params[:page] || 1).to_i
+    @highlights = Article.recent_three
+    highlights_id = @highlights.pluck(:id)
     @articles = Article.all
+                       .where('id NOT IN(?)', highlights_id)
+                       .page(current_page).per(4)
   end
 
   def show; end
