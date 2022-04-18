@@ -16,12 +16,14 @@
 
   <body>
   <div class="container">
-    <%= render 'topheader'%>
-    <%= render 'navscroller'%>
+    <%= render 'articles/topheader'%>
+    <%= render 'articles/navscroller'%>
   </div>
   <main class="container">
+    <%= display_msg %>
     <%= yield %>
   </main>
-    <%= render "footer" %>
+    <%= render "articles/footer" %>
+    <%= render plain: params %>
   </body>
 </html>
