@@ -23,6 +23,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'letter_opener'
 end
 
 group :development do
@@ -40,3 +41,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'devise', '~> 4.8'
