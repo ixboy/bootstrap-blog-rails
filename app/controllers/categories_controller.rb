@@ -1,19 +1,21 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category, only: %i[edit update destroy]
 
   def index
-    @categories = Category.all
+    @categories = policy_scope(Category.all)
   end
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def edit; end
 
   def create
     @category = Category.new(category_params)
-
+    authorize @category
     if @category.save
       redirect_to categories_url, notice: 'Category was successfully created.'
     else
@@ -41,6 +43,7 @@ class CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:id])
+    authorize @category
   end
 
   def category_params
