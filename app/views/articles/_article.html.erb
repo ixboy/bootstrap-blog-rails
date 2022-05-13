@@ -5,9 +5,9 @@
         <%= truncate(article.body, length: 250) %><br/>
         <%= link_to 'Continue reading...', article, class: 'btn btn-link' %>
     </p>
-    <%= link_to "Edit", edit_article_path(article), class: 'btn btn-secondary' %>
+    <%= link_to "Edit", edit_article_path(article), class: 'btn btn-secondary'  if policy(article).update? %>
     <%= link_to "Destroy", article_path(article), data: {
                     method: :delete,
                     confirm: "Are you sure?"
-                  }, class: 'btn btn-danger' %>
+                  }, class: 'btn btn-danger' if policy(article).destroy? %>
 </article>
