@@ -5,10 +5,6 @@
   </p>
   <p><%= @article.body %></p>
   <%= link_to "Go Back", root_path, class: 'btn btn-secondary' %>
-  <%= link_to "Edit", edit_article_path(@article),
-                class: 'btn btn-secondary' if policy(@article).update? %>
-  <%= link_to "Destroy", article_path(@article), data: {
-                  method: :delete,
-                  confirm: "Are you sure?"
-                }, class: 'btn btn-danger' if policy(@article).destroy? %>
+  <%= edit_article_link(@article) %>
+  <%= delete_article_link(@article) %>
 </article>
