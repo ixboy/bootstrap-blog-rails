@@ -4,26 +4,26 @@ module ArticlesHelper
   end
 
   def new_article_link
-    if current_user
-      link_to 'create new article',
-              new_article_path,
-              class: 'btn btn-primary'
-    end
+    return unless current_user
+
+    link_to 'create new article',
+            new_article_path,
+            class: 'btn btn-primary'
   end
 
   def edit_article_link(article)
-    if policy(article).update?
-      link_to 'Edit', edit_article_path(article),
-              class: 'btn btn-secondary'
-    end
+    return unless policy(article).update?
+
+    link_to 'Edit', edit_article_path(article),
+            class: 'btn btn-secondary'
   end
 
   def delete_article_link(article)
-    if policy(article).destroy?
-      link_to 'Destroy', article_path(article), data: {
-        method: :delete,
-        confirm: 'Are you sure?'
-      }, class: 'btn btn-danger'
-    end
+    return unless policy(article).destroy?
+
+    link_to 'Destroy', article_path(article), data: {
+      method: :delete,
+      confirm: 'Are you sure?'
+    }, class: 'btn btn-danger'
   end
 end
