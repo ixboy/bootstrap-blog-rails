@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  rolify
   has_many :articles, dependent: :restrict_with_error
 
   # Include default devise modules. Others available are:
