@@ -8,14 +8,14 @@ module ArticlesHelper
 
     link_to 'create new article',
             new_article_path,
-            class: 'btn btn-primary'
+            class: 'btn btn-success'
   end
 
   def edit_article_link(article)
     return unless policy(article).update?
 
     link_to 'Edit', edit_article_path(article),
-            class: 'btn btn-secondary'
+            class: 'btn btn-primary'
   end
 
   def delete_article_link(article)
