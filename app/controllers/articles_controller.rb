@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
+  include Paginable
+
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_article, except: %i[index new create]
   def index
-    current_page = (params[:page] || 1).to_i
     @featured = Article.first(3)
     featured_ids = @featured.pluck(:id)
     @articles = Article.without_featured(featured_ids)
