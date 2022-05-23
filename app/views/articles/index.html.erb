@@ -26,7 +26,7 @@
         <nav class="nav d-flex justify-content-between">
             <% @categories.each do |category| %>
                 <%= link_to category.name, root_path(category_id: category.id),
-                     class: "p-2 link-secondary" %>
+                     class: "p-2 link-secondary #{'category-active' if category.id.to_s == params[:category_id]}" %>
             <% end %>
         </nav>
     </div>
