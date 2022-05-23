@@ -4,8 +4,7 @@
       <strong class="d-inline-block mb-2 text-primary"><%= article.category.name %></strong>
       <h3 class="mb-0"><%= truncate(article.title, length: 20) %></h3>
       <div class="mb-1 text-muted">
-        <%= date_helper(article.created_at)%>.<br>by:
-        <strong><%= article.user.email %></strong>
+        <%= render 'article_detail', article: article%>
       </div>
       <p class="card-text mb-auto"><%= truncate(article.body, length: 100) %></p>
         <%= link_to 'Continue reading...', article, class: 'stretched-link' %>

@@ -1,7 +1,7 @@
 <article class="blog-post">
   <h2 class="blog-post-title"><%= @article.title %></h2>
-  <p class="blog-post-meta"><%= date_helper(@article.created_at)%>,  by:
-    <strong><%= @article.user.email %></strong>
+  <p class="blog-post-meta">
+    <%= render 'article_detail', article: @article%>
   </p>
   <p><%= @article.body %></p>
   <%= link_to "Go Back", root_path, class: 'btn btn-secondary' %>

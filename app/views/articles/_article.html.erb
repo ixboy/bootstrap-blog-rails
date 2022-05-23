@@ -1,6 +1,8 @@
 <article class="blog-post">
     <h2 class="blog-post-title"><%= article.title %></h2>
-    <p class="blog-post-meta"><%= date_helper(article.created_at)%>, by: <strong><%= article.user.email %></strong></p>
+    <p class="blog-post-meta">
+        <%= render 'article_detail', article: article%>
+    </p>
     <p>
         <%= truncate(article.body, length: 250) %><br/>
         <%= link_to 'Continue reading...', article, class: 'btn btn-link' %>
