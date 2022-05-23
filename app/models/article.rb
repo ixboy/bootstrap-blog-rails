@@ -9,4 +9,5 @@ class Article < ApplicationRecord
   # Scopes
   default_scope { order(created_at: :desc) }
   scope :without_featured, ->(ids) { where('id NOT IN(?)', ids) if ids.present? }
+  scope :filtered_by_category, ->(category_id) { where(category_id: category_id) if category_id.present? }
 end
