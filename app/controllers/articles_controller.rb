@@ -3,16 +3,19 @@ class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_article, except: %i[index new create]
+
   def index
-    category = Category.find_by_name(params[:category]) if params[:category].present?
-    @featured = Article.filtered_by_category(category)
+    @categories = Category.all
+    category = @categories.select { |c| c.name == params[:category] } if params[:category].present?
+    category = category[0] if category
+    @featured = Article.includes(:category, :user)
+                       .filtered_by_category(category)
                        .first(3)
     featured_ids = @featured.pluck(:id)
-    @articles = Article.without_featured(featured_ids)
+    @articles = Article.includes(:category, :user)
+                       .without_featured(featured_ids)
                        .filtered_by_category(category)
                        .page(current_page)
-
-    @categories = Category.all
   end
 
   def show; end
