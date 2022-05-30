@@ -10,12 +10,15 @@ class ArticlesController < ApplicationController
     category = category[0] if category
     @featured = Article.includes(:category, :user)
                        .filtered_by_category(category)
+                       .filtered_by_archive(params[:month_year])
                        .first(3)
     featured_ids = @featured.pluck(:id)
     @articles = Article.includes(:category, :user)
                        .without_featured(featured_ids)
                        .filtered_by_category(category)
+                       .filtered_by_archive(params[:month_year])
                        .page(current_page)
+    @archives = Article.group_by_month(:created_at, format: '%B %Y').count
   end
 
   def show; end
