@@ -13,5 +13,4 @@ Category.all.each do |category|
     )
   end
 end
-
 p "Created #{Article.count} articless"
