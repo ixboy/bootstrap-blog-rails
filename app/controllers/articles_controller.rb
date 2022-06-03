@@ -1,23 +1,36 @@
 class ArticlesController < ApplicationController
+  include Paginable
+
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_article, except: %i[index new create]
+
   def index
-    current_page = (params[:page] || 1).to_i
-    @featured = Article.first(3)
+    @categories = Category.all
+    category = @categories.select { |c| c.name == params[:category] } if params[:category].present?
+    category = category[0] if category
+    @featured = Article.includes(:category, :user)
+                       .filtered_by_category(category)
+                       .filtered_by_archive(params[:month_year])
+                       .first(3)
     featured_ids = @featured.pluck(:id)
-    @articles = Article.without_featured(featured_ids)
+    @articles = Article.includes(:category, :user)
+                       .without_featured(featured_ids)
+                       .filtered_by_category(category)
+                       .filtered_by_archive(params[:month_year])
                        .page(current_page)
+    @archives = Article.group_by_month(:created_at, format: '%B %Y').count
   end
 
   def show; end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     if @article.save
-      redirect_to @article
+      redirect_to @article, notice: 'Article was successfully created.'
     else
       render :new
     end
@@ -28,7 +41,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to @article, notice: 'Article was successfully updated.'
     else
       render :edit
     end
@@ -36,17 +49,17 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-
-    redirect_to root_path
+    redirect_to root_path, notice: 'Article was successfully destroyed.'
   end
 
   private
 
   def article_params
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :category_id)
   end
 
   def set_article
     @article = Article.find(params[:id])
+    authorize @article
   end
 end

@@ -1,13 +1,12 @@
 <article class="blog-post">
     <h2 class="blog-post-title"><%= article.title %></h2>
-    <p class="blog-post-meta"><%= date_helper(article.created_at)%> <a href="#">Chris</a></p>
+    <p class="blog-post-meta">
+        <%= render 'article_detail', article: article%>
+    </p>
     <p>
         <%= truncate(article.body, length: 250) %><br/>
         <%= link_to 'Continue reading...', article, class: 'btn btn-link' %>
     </p>
-    <%= link_to "Edit", edit_article_path(article), class: 'btn btn-secondary' %>
-    <%= link_to "Destroy", article_path(article), data: {
-                    method: :delete,
-                    confirm: "Are you sure?"
-                  }, class: 'btn btn-danger' %>
+    <%= edit_article_link(article) %>
+    <%= delete_article_link(article) %>
 </article>

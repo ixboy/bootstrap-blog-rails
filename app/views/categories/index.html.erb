@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Categories</h1>
-
-<table>
+<p>
+    <%= link_to 'create new Category', new_category_path, class: 'btn btn-success' %>
+</p>
+<table class="table table-striped table-success table-hover"  >
   <thead>
     <tr>
       <th>Name</th>
@@ -12,16 +12,13 @@
 
   <tbody>
     <% @categories.each do |category| %>
-      <tr>
+      <tr >
         <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td >
+          <%= edit_category_link(category) %>
+          <%= delete_category_link(category)%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
