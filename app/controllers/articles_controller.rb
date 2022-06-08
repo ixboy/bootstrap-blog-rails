@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   include Paginable
 
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_article, except: %i[index new create]
+  before_action :set_article, except: %i[index show new create]
 
   def index
     @categories = Category.all
@@ -21,7 +21,10 @@ class ArticlesController < ApplicationController
     @archives = Article.group_by_month(:created_at, format: '%B %Y').count
   end
 
-  def show; end
+  def show
+    @article = Article.includes(comments: :user).find(params[:id])
+    authorize @article
+  end
 
   def new
     @article = current_user.articles.new
