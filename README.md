@@ -1,4 +1,4 @@
-This is a blog I built using Ruby on Rails 6 in MVC pattern with a Bootstrap 5 template for the frontend, after the user is registered, the user can add a post, or comment on posts from other users. Users have different roles and privileges, Admins can add, delete and edit categories but normal users can't do any of those actions, moderators can create and edit categories but they cannot delete categories after created.
+This is a blog I built using Ruby on Rails 6 in MVC pattern with a Bootstrap 5 template for the frontend, after the user is registered, the user can add a post, or comment on posts from other users. Users have different roles and privileges, Admins can add, delete and edit categories but normal users can't do any of those actions, moderators can create and edit categories but they cannot delete categories after created, only admins can delete categories.
 I am still working on this project, I plan to implement the abilities to delete and edit comments, like and unlike any post, upload photos, drag and drop and many other functionalities along the way.
 
 ## Screenshot
@@ -30,7 +30,7 @@ It does not have a live version Yet!
 git clone https://github.com/ixboy/bootstrapblog.git
 
 # enter the cloned directory
-cd blogstrap
+cd bootstrapblog
 
 # install Ruby on Rails dependencies
 bundle install
@@ -61,10 +61,18 @@ rails s
 
 - open `http://localhost:3000/` in your browser.
 
-- Sign up with your email and password and to start enjoying the app...
+- Sign up with your email and password, an email confirmation will be sent to you and then you can start enjoying the app...
+
+- After seeding there will be 10 users created and the user1 and user10 are admins, the rest are all normal users, you can find the user details bellow, all users have the same password for testing purposes.
+- Admins:
+  - user1@email.com | password: 123456
+  - user10@email.com | password: 123456
+- Normal users:
+  - user2@email.com | password: 123456
+  - user3@email.com | password: 123456
 
 
-### Deployment
+## Deployment
 
 - The App will be deployed in Heroku soon!!!
 
