@@ -3,7 +3,7 @@
     <h5 class="card-title"><%= date_helper(comment.created_at)%></h5>
     <h6 class="card-subtitle mb-2 text-muted"><u>Commenter:&nbsp;</u> <%= comment.user.email%></h6>
     <p class="card-text"><%=comment.body%></p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <%= edit_comment_link(@article, comment) %>
+    <%= delete_comment_link(@article, comment) %>
   </div>
 </div>
