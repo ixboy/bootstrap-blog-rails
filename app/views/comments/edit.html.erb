@@ -1,0 +1,14 @@
+<article class="blog-post">
+    <h2 class="blog-post-title">Edit comment</h2>
+    
+<%= simple_form_for [@article, @comment] do |f| %>
+
+<div class="form-inputs">
+  <%= f.input :body, input_html: { rows: 8 } %>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, class: 'btn btn-primary' %>
+</div>
+<% end %>
+</article>
