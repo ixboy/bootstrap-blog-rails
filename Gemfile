@@ -8,6 +8,7 @@ gem 'faker'
 gem 'groupdate'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
+gem 'pg', '~> 1.3', '>= 1.3.5'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'sass-rails', '>= 6'
@@ -17,7 +18,6 @@ gem 'webpacker', '~> 5.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
@@ -39,6 +39,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'devise', '~> 4.8'
 
-gem 'pg', '~> 1.3', '>= 1.3.5', group: :production
 gem 'pundit', '~> 2.2'
 gem 'rolify', '~> 6.0'
