@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2022_06_04_160441) do
 
   create_table "articles", force: :cascade do |t|
-    t.string "title"
+    t.text "title"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_06_04_160441) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
+    t.text "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2022_06_04_160441) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string "name"
-    t.string "resource_type"
+    t.text "name"
+    t.text "resource_type"
     t.integer "resource_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -51,20 +51,20 @@ ActiveRecord::Schema.define(version: 2022_06_04_160441) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.text "email", default: "", null: false
+    t.text "encrypted_password", default: "", null: false
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.string "confirmation_token"
+    t.text "current_sign_in_ip"
+    t.text "last_sign_in_ip"
+    t.text "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
+    t.text "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
