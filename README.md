@@ -84,6 +84,12 @@ rails s
 - Twitter: [@ismaelixboy](https://twitter.com/ismaelixboy)
 - LinkedIn: [ismael-antonio](https://www.linkedin.com/in/ismaelantonio/)
 
+
+## Acknowledgments
+
+- Tutorial by [Paulo Melo](https://github.com/peimelo)
+
+
 ## 🤝 Contributing
 
 Contributions, issues and feature requests are welcome!
