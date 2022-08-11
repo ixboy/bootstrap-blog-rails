@@ -1,4 +1,4 @@
-This is a blog I built using Ruby on Rails 6 in MVC pattern with a Bootstrap 5 template for the frontend, after the user is registered, the user can add a post, or comment on posts from other users. Users have different roles and privileges, Admins can add, delete and edit categories but normal users can't do any of those actions, moderators can create and edit categories but they cannot delete categories after created, only admins can delete categories.
+After watching a youtube tutorial. I decided to build this blog using Ruby on Rails 6 in MVC pattern with a Bootstrap 5 template for the frontend, after the user is registered, the user can add a post, or comment on posts from other users. Users have different roles and privileges, Admins can add, delete and edit categories but normal users can't do any of those actions, moderators can create and edit categories but they cannot delete categories after created, only admins can delete categories.
 I am still working on this project, I plan to implement the abilities to delete and edit comments, like and unlike any post, upload photos, drag and drop and many other functionalities along the way.
 
 ## Screenshot
@@ -83,6 +83,12 @@ rails s
 - GitHub: [@ixboy](https://github.com/ixboy)
 - Twitter: [@ismaelixboy](https://twitter.com/ismaelixboy)
 - LinkedIn: [ismael-antonio](https://www.linkedin.com/in/ismaelantonio/)
+
+
+## Acknowledgments
+
+- Tutorial by [Paulo Melo](https://github.com/peimelo)
+
 
 ## 🤝 Contributing
 
