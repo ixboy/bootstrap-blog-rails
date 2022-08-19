@@ -20,8 +20,7 @@ I am still working on this project, I plan to implement the abilities to delete 
 
 ## Live Demo
 
-It does not have a live version Yet!
-
+[Click here to view it live on Heroku](https://bootstrap-blog-rails.herokuapp.com/)
 
 ## Initial settings to run the project
 
@@ -74,7 +73,7 @@ rails s
 
 ## Deployment
 
-- The App will be deployed in Heroku soon!!!
+- The App is deployed on Heroku!
 
 ## Author
 
@@ -87,7 +86,7 @@ rails s
 
 ## Acknowledgments
 
-- Tutorial by [Paulo Melo](https://github.com/peimelo)
+- Tutorial by: [Paulo Melo](https://github.com/peimelo)
 
 
 ## 🤝 Contributing
