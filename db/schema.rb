@@ -16,26 +16,26 @@ ActiveRecord::Schema.define(version: 2022_06_04_160441) do
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
-    t.text "title"
+    t.string "title"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "category_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.text "name", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id", null: false
-    t.integer "article_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
@@ -43,9 +43,9 @@ ActiveRecord::Schema.define(version: 2022_06_04_160441) do
   end
 
   create_table "roles", force: :cascade do |t|
-    t.text "name"
-    t.text "resource_type"
-    t.integer "resource_id"
+    t.string "name"
+    t.string "resource_type"
+    t.bigint "resource_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
@@ -54,20 +54,20 @@ ActiveRecord::Schema.define(version: 2022_06_04_160441) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "email", default: "", null: false
-    t.text "encrypted_password", default: "", null: false
-    t.text "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.text "current_sign_in_ip"
-    t.text "last_sign_in_ip"
-    t.text "confirmation_token"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.text "unconfirmed_email"
+    t.string "unconfirmed_email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2022_06_04_160441) do
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
+    t.bigint "user_id"
+    t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"
