@@ -20,7 +20,7 @@ I really plan on working more on this project, I plan to implement the abilities
 
 ## Live Demo
 
-[Click here to view it live on Heroku](https://bootstrap-blog-rails.herokuapp.com/)
+[Click here to view it live on Heroku](https://bootstrap-rails-blog-b7556c55d018.herokuapp.com/)
 
 ## Initial settings to run the project
 
