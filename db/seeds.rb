@@ -8,7 +8,6 @@ puts 'creating users...'
 
 1.upto(10) do |n|
   user = User.new(
-    id: n,
     email: "user#{n}@email.com",
     password: '123456',
     password_confirmation: '123456'
@@ -23,18 +22,18 @@ admin2.toggle!(:admin)
 
 puts 'creating categories...'
 
-Category.create!(id: 1,  name: 'Ruby')
-Category.create!(id: 2,  name: 'Python')
-Category.create!(id: 3,  name: 'JavaScript')
-Category.create!(id: 4,  name: 'Go')
-Category.create!(id: 5,  name: 'C')
-Category.create!(id: 6,  name: 'Swift')
-Category.create!(id: 7,  name: 'Php')
-Category.create!(id: 8,  name: 'C++')
-Category.create!(id: 9,  name: 'Kotlin')
-Category.create!(id: 10, name: 'Perl')
-Category.create!(id: 11, name: 'Rust')
-Category.create!(id: 12, name: 'Scala')
+Category.create!(name: 'Ruby')
+Category.create!(name: 'Python')
+Category.create!(name: 'JavaScript')
+Category.create!(name: 'Go')
+Category.create!(name: 'C')
+Category.create!(name: 'Swift')
+Category.create!(name: 'Php')
+Category.create!(name: 'C++')
+Category.create!(name: 'Kotlin')
+Category.create!(name: 'Perl')
+Category.create!(name: 'Rust')
+Category.create!(name: 'Scala')
 
 puts 'creating articles...'
 
